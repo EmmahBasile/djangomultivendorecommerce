@@ -1,0 +1,31 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<body class="container text-center">
+    <div class="border border-primary mb-6">
+        <div class="row justify-content-center ">
+            <form class="form-signin" method="POST">
+                {% csrf_token %}
+                <img class="mb-4" src="{% static 'img/logo.png' %}" alt="" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <label for="inputEmail" class="sr-only mb-3">Email address</label>
+                <input type="email" required name="email" class="form-control mb-3" placeholder="Email address" required
+                    autofocus>
+                <label for="inputPassword" class="sr-only mb-3">Password</label>
+                <input required type="password" name="password" class="form-control mb-3" placeholder="Password"
+                    required>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block mb-6" type="submit">Sign in</button>
+
+                <span class="boarder-primary mt-3 mb-3">Not a User <a
+                        href="{% url 'userauth:sign-up' %}">Sign-Up</a></span>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock content %}
